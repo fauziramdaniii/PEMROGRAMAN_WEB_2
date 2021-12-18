@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/home', function () {
+    return view('layout.app');
+});
+Route::get('/jadwal', function () {
+    return view('layout.app');
+});
+Route::get('/sewalapang', function () {
+    return view('layout.app');
+});
+Route::get('/logout', function () {
+    return view('layout.app');
 });
