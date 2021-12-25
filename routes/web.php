@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\JadwalController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,9 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/home', function () {
     return view('layout.app');
 });
-Route::get('/jadwal', function () {
-    return view('layout.app');
-});
+
+Route::get('/jadwal', [JadwalController::class, 'index']);
+
 Route::get('/sewalapang', function () {
     return view('layout.app');
 });
