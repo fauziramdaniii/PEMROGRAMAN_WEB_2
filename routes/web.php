@@ -18,11 +18,4 @@ Route::get('/home', function () {
     return view('layout.app');
 });
 
-Route::get('/jadwal', [JadwalController::class, 'index']);
-
-Route::get('/sewalapang', function () {
-    return view('layout.app');
-});
-Route::get('/logout', function () {
-    return view('layout.app');
-});
+Route::resource('/jadwal', JadwalController::class);
