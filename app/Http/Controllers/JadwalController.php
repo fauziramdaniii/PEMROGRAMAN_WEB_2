@@ -29,20 +29,20 @@ class JadwalController extends Controller
         ]);
 
         Jadwal::create($request->all());
-        return redirect('/jadwal')->with('success', 'Student saved!');
+        return redirect('/jadwal')->with('success', 'Jadwal saved!');
     }
 
     public function edit($id)
     {
-        $student = Jadwal::find($id);
-        return view('jadwal.edit', compact('jadwals'));
+        $jadwal = Jadwal::find($id);
+        return view('jadwal.edit', ['jadwal' => $jadwal]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Student  $student
+     * @param  \App\Models\Jadwal  $Jadwal
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Jadwal $jadwal)
@@ -63,7 +63,7 @@ class JadwalController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Student  $student
+     * @param  \App\Models\Jadwal  $Jadwal
      * @return \Illuminate\Http\Response
      */
     public function destroy(Jadwal $jadwal)

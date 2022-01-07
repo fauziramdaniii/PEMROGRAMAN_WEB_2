@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="col-md-8 offset-md-2">
+        <br>
         <h3> Tambah Sewa </h3>
 
         @if ($errors->any())

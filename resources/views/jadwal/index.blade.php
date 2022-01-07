@@ -1,9 +1,10 @@
 @extends('layout.app')
 <?php $no=1 ?>
 @section ("content")
+<br>
 <h3>Data Sewa</h3>
-    <a href="/jadwal/create" class="btn btn-success"> Tambah Data</a>
-    <div class="col-sm-12">
+    <a href="/jadwal/create" class="btn btn-danger"> Tambah Sewa</a><br>
+    <div class="col-sm-12"> <br>
 
         @if (session()->get('success'))
             <div class="alert alert-sucess">
@@ -34,13 +35,13 @@
             <td> {{ $jadwal->day }} </td>
             <td> {{ $jadwal->description}}
                 <td>
-                    <a href="/jadwal/{{ $jadwal->id }}/edit/" class="btn btn-primary"> Edit</a>
+                    <a href="/jadwal/{{ $jadwal->id }}/edit/" class="btn btn-info"> Edit</a>
                 </td>
                 <td>
                     <form action="/student/{{ $jadwal->id }}" method="post">
                         @csrf
                         @method('DELETE')
-                        <button class="btn btn-danger" type="submit"> Delete</button>
+                        <button class="btn btn-dark" type="submit"> Delete</button>
                     </form>
                 </td>
         </tr>

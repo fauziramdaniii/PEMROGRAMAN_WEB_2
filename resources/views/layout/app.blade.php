@@ -30,7 +30,7 @@
                     <a class="nav-item nav-link active" href="/jadwal">Jadwal</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-item nav-link active" href="/sewalapang">Sewa Lapang</a>
+                    <a class="nav-item nav-link active" href="/lapang">Lapang</a>
                 </li>
             </ul>
         </div>
