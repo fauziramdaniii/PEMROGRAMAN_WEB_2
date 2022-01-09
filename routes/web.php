@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\JadwalController;
+use App\Http\Controllers\LapangController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,4 @@ Route::get('/home', function () {
 });
 
 Route::resource('/jadwal', JadwalController::class);
+Route::resource('/lapang', LapangController::class);

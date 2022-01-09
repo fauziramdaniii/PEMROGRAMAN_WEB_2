@@ -2,9 +2,7 @@
 
 @section('content')
     <div class="col-md-8 offset-md-2">
-        <br>
         <h3> Tambah Sewa </h3>
-
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -14,7 +12,6 @@
                 </ul>
             </div> <br />
         @endif
-
         <form method="post" action="/jadwal">
             @csrf
             <div class="form-group">
