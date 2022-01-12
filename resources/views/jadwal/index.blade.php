@@ -3,7 +3,7 @@
 @section ("content")
 <br>
 <h3>Data Sewa</h3>
-    <a href="/jadwal/create" class="btn btn-danger"> Tambah Sewa</a><br>
+    <a href="/jadwal/create" class="btn btn-danger"> Tambah Sewa </a><br>
     <div class="col-sm-12"> <br>
 
         @if (session()->get('success'))
@@ -48,6 +48,5 @@
         @endforeach
     </tbody>
 </table>
-@stop
-
+@endsection
             

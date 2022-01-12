@@ -17,13 +17,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/home', function () {
-    return view('layout.app');
+    return view('layout.container');
 });
 
 Route::resource('/jadwal', JadwalController::class);
 Route::resource('/lapang', LapangController::class);
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
-// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-//     return view('dashboard');
-// })->name('dashboard');
+// // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+// //     return view('dashboard');
+// // })->name('dashboard');
