@@ -3,6 +3,7 @@
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\LapangController;
+use App\Http\Controllers\SewaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,8 +23,9 @@ Route::get('/home', function () {
 
 Route::resource('/jadwal', JadwalController::class);
 Route::resource('/lapang', LapangController::class);
+Route::resource('/sewa', SewaController::class);
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
-// Route::middleware(['auth:sanctum', 'verified'])->get('/jadwal', function () {
-//     return view('dashboard');
-// })->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/jadwal', function () {
+    return view('jadwal.index');
+})->name('jadwal');

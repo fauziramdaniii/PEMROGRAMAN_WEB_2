@@ -11,7 +11,7 @@
             </ul>
         </div><br>
     @endif
-
+    
     <form method="post" action="/jadwal/{{$jadwal->id}}">
         @csrf
         @method('PUT')

@@ -26,12 +26,12 @@
     </thead>
     <tbody>
         @foreach ($jadwals as $jadwal)
-        <tr>
+        <tr> 
             <td> {{ $no++ }} </td>
             <td> {{ $jadwal->name }} </td>
             <td> {{ $jadwal->date }} </td>
-            <td> {{ $jadwal->clock_start }} </td>
-            <td> {{ $jadwal->clock_finish }} </td>
+            <td> {{ date('H:00', strtotime($jadwal->clock_start))  }} </td>
+            <td> {{ date('H:00', strtotime($jadwal->clock_finish))  }} </td>
             <td> {{ $jadwal->day }} </td>
             <td> {{ $jadwal->description}}
                 <td>

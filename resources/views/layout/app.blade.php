@@ -118,10 +118,10 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <!-- User Profile-->
-                        <li class="sidebar-item pt-2">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/home"
+                        <li class="sidebar-item ">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/sewa"
                                 aria-expanded="false">
-                                <span class="hide-menu">Dashboard</span>
+                                <span class="hide-menu text-align">Dashboard</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
@@ -187,7 +187,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center"> 2022 FAUZI RAMDANI <a
-                    href="len.co.id">sihsse.com</a>
+                    href="len.co.id"></a>
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
