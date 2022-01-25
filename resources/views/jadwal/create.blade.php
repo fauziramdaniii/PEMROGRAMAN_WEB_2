@@ -35,8 +35,17 @@
                 <input type="text" class="form-control" name="day" required>
             </div>
             <div class="form-group">
-                <label for="description"> Keterangan </label>
-                <input type="text" class="form-control" name="description" required>
+                <label for="wa"> WhatsUpp </label>
+                <input type="text" class="form-control" name="wa" required>
+            </div>
+            <div class="form-group">
+                <label for="code">Lapang</label>
+                <select name="lapang_id" class="form-control" id="">
+                    <option value="">== Lapang ==</option>
+                    @foreach($lapangs as $id => $name)
+                    <option value="{{$id}}">{{$name}}</option>
+                    @endforeach
+                </select>
             </div>
             <button type="submit" class="btn btn-primary"> Simpan </button>
         </form>

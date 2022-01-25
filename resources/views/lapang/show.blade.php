@@ -1,8 +1,7 @@
 @extends("layout.app")
 
 @section("content")
-<center><h3>Data Lapangan</h3>
-<center><a href="/lapang/create" class="btn btn-dark">Tambah Lapangan</a>
+<h3>Lihat Data Lapang #{{$lapang->name}}</h3>
 <div class="col-sm-12">
     @if(session()->get('success'))
         <div class="alert alert-success">
@@ -13,18 +12,19 @@
     <table class="table table-striped mt-4">
         <thead>
             <tr>
-              <td>No</td>
+                <td>No</td>
+                <td>Nama</td>
                 <td>Lapang</td>
-                <td> Jumlah </td>
-                <td colspan="2"><center>Aksi </td>
+                <td colspan=2></td>
             </tr>
         </thead>
         <tbody>
-            @foreach($lapangs as $lapang)
+            @if($lapang->jadwals)
+            @foreach($lapang->jadwals as $jadwal)
             <tr>
                 <td>{{$loop->iteration}}</td>
-                <td>{{$lapang->name}}</td>
-                <td>{{$lapang->lapangs->count(  )}} </td>
+                <td>{{$jadwal->code}}</td>
+                <td>{{$jadwal->name}}</td>
                 <td>
                     <a href="/lapang/{{$lapang->id}}/edit/" class="btn btn-primary">Edit</a>
                 </td>
@@ -37,6 +37,7 @@
                 </td>
             </tr>
             @endforeach
+            @endif
         </tbody>
     </table>
 @stop

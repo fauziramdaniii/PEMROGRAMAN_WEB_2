@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJadwalsTable extends Migration
+class CreateStudentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreateJadwalsTable extends Migration
      */
     public function up()
     {
-        Schema::create('jadwals', function (Blueprint $table) {
+        Schema::create('students', function (Blueprint $table) {
             $table->id();
+            $table->string('code', 9)->unique();
             $table->string('name', 50);
-            $table->date('date');
-            $table->time('clock_start');
-            $table->time('clock_finish');
-            $table->string('day', 50);
-            $table->string('description', 50);
+            $table->string('gender', 1);
+            $table->date('birth_date');
+            $table->string('birth_place');
+            $table->foreignId('faculty_id')->nullable();;
+            $table->foreign('faculty_id')->references('id')->on('faculties')->onDelete('set null');
             $table->timestamps();
         });
     }

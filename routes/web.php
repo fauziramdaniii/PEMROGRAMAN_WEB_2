@@ -26,6 +26,6 @@ Route::resource('/lapang', LapangController::class);
 Route::resource('/sewa', SewaController::class);
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
-Route::middleware(['auth:sanctum', 'verified'])->get('/jadwal', function () {
-    return view('jadwal.index');
-})->name('jadwal');
+// Route::middleware(['auth:sanctum', 'verified'])->get('/jadwal', function () {
+//     return view('jadwal.index');
+// })->name('jadwal');

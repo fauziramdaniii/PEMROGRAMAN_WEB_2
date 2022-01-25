@@ -2,50 +2,89 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Lapang;
 use App\Models\Jadwal;
+use Illuminate\Http\Request;
 
-class JadwalController extends Controller
+class jadwalController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $jadwals = Jadwal::all();
-        return view('jadwal.index', compact('jadwals'));
-    }
-    public function create()
-    {
-        return view('jadwal.create');
+        $jadwals = jadwal::all();
+        return view('jadwal.index', ['jadwals' => $jadwals]);
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $lapangs = Lapang::pluck('name', 'id');
+        return view('jadwal.create', compact('lapangs'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
+
         $request->validate([
             'name' => 'required',
             'date' => 'required',
             'clock_start' => 'required',
             'clock_finish' => 'required',
             'day' => 'required',
-            'description' => 'required',
+            'wa' => 'required',
+            'lapang_id' => 'required'
+
         ]);
 
-        Jadwal::create($request->all());
-        return redirect('/jadwal')->with('success', 'Jadwal saved!');
+        jadwal::create($request->all());
+        return redirect('/jadwal')->with('success', 'jadwal Saved!');
     }
 
-    public function edit($id)
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\jadwal  $jadwal
+     * @return \Illuminate\Http\Response
+     */
+    public function show(jadwal $jadwal)
     {
-        $jadwal = Jadwal::find($id);
-        return view('jadwal.edit', ['jadwal' => $jadwal]);
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\jadwal  $jadwal
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(jadwal $jadwal)
+    {
+        $lapangs = lapang::pluck('name', 'id');
+        return view('jadwal.edit', ['jadwal' => $jadwal, 'lapangs' => $lapangs]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Jadwal  $Jadwal
+     * @param  \App\Models\jadwal  $jadwal
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Jadwal $jadwal)
+    public function update(Request $request, jadwal $jadwal)
     {
         $request->validate([
             'name' => 'required',
@@ -53,22 +92,23 @@ class JadwalController extends Controller
             'clock_start' => 'required',
             'clock_finish' => 'required',
             'day' => 'required',
-            'description' => 'required',
+            'wa' => 'required',
+            'lapang_id' => 'required'
         ]);
 
         $jadwal->update($request->all());
-        return redirect('/jadwal')->with('success', 'Data Updated!');
+        return redirect('/jadwal')->with('success', 'jadwal Updated!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Jadwal  $Jadwal
+     * @param  \App\Models\jadwal  $jadwal
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Jadwal $jadwal)
+    public function destroy(jadwal $jadwal)
     {
         $jadwal->delete();
-        return redirect('/jadwal')->with('success', 'Data Deleted');
+        return redirect('/jadwal')->with('success', 'jadwal deleted');
     }
 }

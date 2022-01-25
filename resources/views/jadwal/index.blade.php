@@ -2,8 +2,8 @@
 <?php $no=1 ?>
 @section ("content")
 <br>
-<h3>Data Sewa</h3>
-    <a href="/jadwal/create" class="btn btn-danger"> Tambah Sewa </a><br>
+<h3><center>Data Sewa</h3>
+    <center><a href="/jadwal/create" class="btn btn-dark"> Tambah Sewa </a><br>
     <div class="col-sm-12"> <br>
 
         @if (session()->get('success'))
@@ -21,11 +21,12 @@
             <th> Mulai Jam</th>
             <th> Selesai Jam </th>
             <th> Hari </th>
-            <th> Keterangan </th>
+            <th> Wa </th>
+            <th> Lapang </th>
         </tr>
     </thead>
     <tbody>
-        @foreach ($jadwals as $jadwal)
+        @foreach($jadwals as $jadwal)
         <tr> 
             <td> {{ $no++ }} </td>
             <td> {{ $jadwal->name }} </td>
@@ -33,7 +34,8 @@
             <td> {{ date('H:00', strtotime($jadwal->clock_start))  }} </td>
             <td> {{ date('H:00', strtotime($jadwal->clock_finish))  }} </td>
             <td> {{ $jadwal->day }} </td>
-            <td> {{ $jadwal->description}}
+            <td> {{ $jadwal->wa}}
+            <td>{{$jadwal->lapang->name}}</td>
                 <td>
                     <a href="/jadwal/{{ $jadwal->id }}/edit/" class="btn btn-info"> Edit</a>
                 </td>

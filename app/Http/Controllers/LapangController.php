@@ -2,64 +2,98 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Lapang;
+use Illuminate\Http\Request;
+use App\Http\Requests\StorelapangRequest;
+use App\Http\Requests\UpdatelapangRequest;
 
 class LapangController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $lapangs = Lapang::all();
-        return view('lapang.index', compact('lapangs'));
+        $lapangs = lapang::all();
+        return view('lapang.index', ['lapangs' => $lapangs]);
     }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
         return view('lapang.create');
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \App\Http\Requests\StorelapangRequest  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
         $request->validate([
-            'lapang' => 'required',
+            'name' => 'required',
         ]);
 
-        Lapang::create($request->all());
-        return redirect('/lapang')->with('success', 'Lapang saved!');
+        lapang::create($request->all());
+        return redirect('/lapang')->with('success', 'lapang Saved!');
     }
 
-    public function edit($id)
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\lapang  $lapang
+     * @return \Illuminate\Http\Response
+     */
+    public function show(lapang $lapang)
     {
-        $lapang = Lapang::find($id);
+        return view('lapang.show', compact('lapang'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\lapang  $lapang
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(lapang $lapang)
+    {
         return view('lapang.edit', ['lapang' => $lapang]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Lapang  $Lapang
+     * @param  \App\Http\Requests\UpdatelapangRequest  $request
+     * @param  \App\Models\lapang  $lapang
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Lapang $Lapang)
+    public function update(Request $request, lapang $lapang)
     {
         $request->validate([
-            'lapang' => 'required',
-            'gambar' => 'required',
+            'name' => 'required',
         ]);
 
-        $Lapang->update($request->all());
-        return redirect('/lapang')->with('success', 'Data Updated!');
+        $lapang->update($request->all());
+        return redirect('/lapang')->with('success', 'lapang Updated!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Lapang  $Lapang
+     * @param  \App\Models\lapang  $lapang
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Lapang $Lapang)
+    public function destroy(lapang $lapang)
     {
-        $Lapang->delete();
-        return redirect('/lapang')->with('success', 'Data Deleted');
+        $lapang->delete();
+        return redirect('/lapang')->with('success', 'lapang deleted');
     }
 }

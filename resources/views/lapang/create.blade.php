@@ -15,12 +15,8 @@
         <form method="post" action="/lapang">
             @csrf
             <div class="form-group">
-                <label for="lapang"> Lapang </label>
-                <input type="text" class="form-control" name="lapang" required>
-            </div>
-            <div class="form-group">
-                <label for="gambar"> Gambar </label>
-                <input type="text" class="form-control" name="gambar" required>
+                <label for="name"> Lapang </label>
+                <input type="text" class="form-control" name="name" required>
             </div>
             <button type="submit" class="btn btn-primary"> Simpan </button>
         </form>

@@ -11,17 +11,12 @@
             </ul>
         </div><br>
     @endif
-
-    <form method="post" action="/lapang/{{$lapang->id}}">
+    <form method="post" action="/lapang">
         @csrf
         @method('PUT')
         <div class="form-group">
-            <label for="lapang"> Lapang </label>
-            <input type="text" class="form-control" name="lapang" required value="{{$lapang->lapang}}">
-        </div>
-        <div class="form-group">
-            <label for="gambar"> Gambar </label>
-            <input type="text" class="form-control" name="gambar" required value="{{$lapang->gambar}}" >
+            <label for="name"> Lapang </label>
+            <input type="text" class="form-control" name="name" required value="{{$lapang->name}}">
         </div>
         <button type="submit" class="btn btn-primary"> Simpan </button>
     </form>
