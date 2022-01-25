@@ -24,15 +24,15 @@
             <tr>
                 <td>{{$loop->iteration}}</td>
                 <td>{{$lapang->name}}</td>
-                <td>{{$lapang->lapangs->count(  )}} </td>
+                <td>{{$lapang->lapangs->count(  )  }} Penyewa </td>
                 <td>
-                    <a href="/lapang/{{$lapang->id}}/edit/" class="btn btn-primary">Edit</a>
+                    <a href="/lapang/{{$lapang->id}}/edit/" class="btn btn-info">Edit</a>
                 </td>
                 <td>
                     <form action="/lapang/{{$lapang->id}}" method="post">
                         @csrf
                         @method('DELETE')
-                        <button class="btn btn-danger" type="submit">Delete</button>
+                        <button class="btn btn-dark" type="submit">Delete</button>
                     </form>
                 </td>
             </tr>

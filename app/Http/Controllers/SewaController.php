@@ -54,6 +54,7 @@ class SewaController extends Controller
             'clock_finish' => 'required',
             'day' => 'required',
             'wa' => 'required',
+            'lapang' => 'required'
         ]);
 
         $sewa->update($request->all());
